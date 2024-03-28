@@ -25,16 +25,20 @@ interface TodoContextType {
   setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
 }
 
-const initialTodos: Todo[] = [];
-
-const getTodos = JSON.parse(localStorage.getItem("todos") || "");
+const initialTodos: Todo[] = (() => {
+  try {
+    const storedTodos = localStorage.getItem("todos");
+    return storedTodos ? JSON.parse(storedTodos) : [];
+  } catch (error) {
+    console.error("Error parsing todos from localStorage:", error);
+    return [];
+  }
+})();
 
 const TodoContext = createContext<TodoContextType | undefined>(undefined);
 
 function TodoProvider({ children }: TodoProviderProps) {
-  const [todos, setTodos] = useState<Todo[]>(
-    getTodos ? getTodos : initialTodos
-  );
+  const [todos, setTodos] = useState<Todo[]>(initialTodos);
   const [activeTab, setActiveTab] = useState("all");
 
   useEffect(() => {
