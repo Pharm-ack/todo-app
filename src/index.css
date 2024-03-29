@@ -76,7 +76,7 @@
 }
 @layer components {
   .view {
-    @apply absolute top-10 ml-8 min-[375px]:w-80 min-[320px]:w-[16rem] min-[425px]:ml-[3.2rem] md:w-96 md:ml-44 lg:w-[32rem] lg:ml-52 xl:w-[38rem] xl:ml-96;
+    @apply absolute top-10 ml-8 min-[375px]:w-80 min-[320px]:w-[16rem] min-[425px]:ml-[3.8rem] md:w-96 md:ml-44 lg:w-[32rem] lg:ml-52 xl:w-[38rem] xl:ml-96;
   }
 }
 

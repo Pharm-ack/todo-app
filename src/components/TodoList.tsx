@@ -31,7 +31,7 @@ function TodoList({ item }: TodoListProps) {
             type="text"
             value={editedTodo}
             onChange={(e) => setEditedTodo(e.target.value)}
-            className="outline-none px-1"
+            className="outline-none px-2 py-1 rounded-md bg-inherit shadow-lg ring-1 ring-[#cacde8]"
           />
         </div>
       ) : (
